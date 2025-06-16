@@ -5,6 +5,9 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
+const cors = require('cors');
+app.use(cors());
+
 // Usar variáveis de ambiente do GitHub
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
@@ -42,3 +45,5 @@ app.get('/api/comics/:heroId', async (req, res) => {
 });
 
 app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`));
+
+
