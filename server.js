@@ -1,18 +1,16 @@
 const express = require('express');
 const crypto = require('crypto');
 const fetch = require('node-fetch');
-const cors = require('cors');
+const cors = require('cors'); // Removi a duplicação
 const app = express();
 const port = process.env.PORT || 3000;
 
-const cors = require('cors');
+// Use o middleware cors uma única vez
 app.use(cors());
 
-// Usar variáveis de ambiente do GitHub
+// Usar variáveis de ambiente do Vercel (não do GitHub)
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-
-app.use(cors());
 
 // Rota para buscar herói
 app.get('/api/hero/:name', async (req, res) => {
@@ -45,5 +43,3 @@ app.get('/api/comics/:heroId', async (req, res) => {
 });
 
 app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`));
-
-
