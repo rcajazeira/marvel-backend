@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "name": "backend",
+      "type": "nodejs",
+      "command": "npm install && npm run build",
+      "entrypoint": "server.js"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/hero/(.*)",
+      "dest": "backend"
+    },
+    {
+      "src": "/api/comics/(.*)",
+      "dest": "backend"
+    },
+    {
+      "src": "/api/stories/(.*)",
+      "dest": "backend"
+    }
+  ]
+}
