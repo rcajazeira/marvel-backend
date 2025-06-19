@@ -1,8 +1,10 @@
 
+
 {
   "version": 2,
   "builds": [
     {
+      
       "type": "nodejs",
       "command": "npm install && npm run build",
       "entrypoint": "server.js"
