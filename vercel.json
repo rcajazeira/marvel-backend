@@ -3,7 +3,6 @@
   "version": 2,
   "builds": [
     {
-      "name": "backend",
       "type": "nodejs",
       "command": "npm install && npm run build",
       "entrypoint": "server.js"
