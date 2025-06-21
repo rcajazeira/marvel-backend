@@ -1,29 +1,24 @@
-
-
-
 {
   "version": 2,
   "builds": [
-    {
-
-      
-      "type": "nodejs",
-      "command": "npm install && npm run build",
-      "entrypoint": "server.js"
-    }
+    { "src": "server.js", "use": "@vercel/node" }
   ],
   "routes": [
     {
-      "src": "/api/hero/(.*)",
-      "dest": "backend"
-    },
+      "src": "/(.*)",
+      "dest": "server.js",
+      "methods": ["GET","POST","OPTIONS"]
+    }
+  ],
+  "headers": [
     {
-      "src": "/api/comics/(.*)",
-      "dest": "backend"
-    },
-    {
-      "src": "/api/stories/(.*)",
-      "dest": "backend"
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://rcajazeira.github.io/marvel-heroes/" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
     }
   ]
 }
